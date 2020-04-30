@@ -57,21 +57,21 @@ describe 'adding tuples' do
     a = point(3, -2, 5)
     b = vector(-2, 3, 1)
 
-    expect(a+b).to eq point(1, 1, 6)
+    expect(a + b).to eq point(1, 1, 6)
   end
 
   it 'should add two vectors' do
     v1 = vector(3, -2, 5)
     v2 = vector(-2, 3, 1)
 
-    expect(v1+v2).to eq vector(1, 1, 6)
+    expect(v1 + v2).to eq vector(1, 1, 6)
   end
 
   it 'should substract two points' do
     p1 = point(3, 2, 1)
     p2 = point(5, 6, 7)
 
-    expect(p1-p2).to eq vector(-2, -4, -6)
+    expect(p1 - p2).to eq vector(-2, -4, -6)
   end
 
   it 'should supstract a vector from a point' do
@@ -79,5 +79,12 @@ describe 'adding tuples' do
     v = vector(5, 6, 7)
 
     expect(p - v).to eq point(-2, -4, -6)
+  end
+
+  it 'should substract two vectors' do
+    v1 = vector(3, 2, 1)
+    v2 = vector(5, 6, 7)
+
+    expect(v1 - v2).to eq vector(-2, -4, -6)
   end
 end

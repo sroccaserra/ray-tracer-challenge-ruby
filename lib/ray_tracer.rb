@@ -50,6 +50,10 @@ module RayTracer
       other.addVector(self)
     end
 
+    def -(other)
+      other.substractFromVector(self)
+    end
+
     def addPoint(p)
       Point.new(self.v + p.v, 1)
     end
@@ -60,6 +64,10 @@ module RayTracer
 
     def substractFromPoint(other)
       Point.new(other.v - self.v, 1)
+    end
+
+    def substractFromVector(other)
+      Vector.new(other.v - self.v, 0)
     end
   end
 end
