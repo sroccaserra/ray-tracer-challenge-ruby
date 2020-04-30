@@ -28,4 +28,11 @@ Color = Struct.new(:v) do
   def *(scalar)
     Color.new(self.v*scalar)
   end
+
+  def mul(other)
+    red = v[0]*other.v[0]
+    green = v[1]*other.v[1]
+    blue = v[2]*other.v[2]
+    Color.new(Vector[red, green, blue])
+  end
 end

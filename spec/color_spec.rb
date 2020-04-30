@@ -32,6 +32,16 @@ describe 'Color' do
   it 'should multiply by a scalar' do
     c = color(0.2, 0.3, 0.4)
 
-    expect(c*2).to eq color(0.4, 0.6, 0.8)
+    expect(c * 2).to eq color(0.4, 0.6, 0.8)
+  end
+
+  it 'should multiply by another color' do
+    c1 = color(1, 0.2, 0.4)
+    c2 = color(0.9, 1, 0.1)
+
+    c3 = c1.mul(c2)
+    expect(c3.red).to eq 0.9
+    expect(c3.green).to eq 0.2
+    expect(c3.blue).to be_within(EPSILON).of 0.04
   end
 end
