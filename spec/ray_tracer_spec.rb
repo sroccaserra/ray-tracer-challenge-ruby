@@ -1,6 +1,6 @@
 require_relative '../lib/ray_tracer.rb'
 
-describe 'Tuples' do
+describe '#tuple' do
   describe 'A tuple with w=1.0' do
     it 'should have x, y, z, w coordinates' do
       a = tuple(4.3, -4.2, 3.1, 1.0)
@@ -49,5 +49,14 @@ describe '#vector' do
     p = vector(4, -4, 3)
 
     expect(p).to eq tuple(4, -4, 3, 0)
+  end
+end
+
+describe 'adding tuples' do
+  it('should add a point and a vector') do
+    a = point(3, -2, 5)
+    b = vector(-2, 3, 1)
+
+    expect(a+b).to eq point(1, 1, 6)
   end
 end

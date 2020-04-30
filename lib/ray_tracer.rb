@@ -29,6 +29,10 @@ module RayTracer
     def z
       v[2]
     end
+
+    def +(other)
+      Point.new(self.v + other.v, 1)
+    end
   end
 
   class Point < Tuple
