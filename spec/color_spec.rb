@@ -28,4 +28,10 @@ describe 'Color' do
     expect(c3.green).to eq 0.5
     expect(c3.blue).to eq 0.5
   end
+
+  it 'should multiply by a scalar' do
+    c = color(0.2, 0.3, 0.4)
+
+    expect(c*2).to eq color(0.4, 0.6, 0.8)
+  end
 end

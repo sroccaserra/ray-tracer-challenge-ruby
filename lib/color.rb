@@ -24,4 +24,8 @@ Color = Struct.new(:v) do
   def -(other)
     Color.new(self.v - other.v)
   end
+
+  def *(scalar)
+    Color.new(self.v*scalar)
+  end
 end
