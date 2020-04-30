@@ -20,4 +20,8 @@ Color = Struct.new(:v) do
   def +(other)
     Color.new(self.v + other.v)
   end
+
+  def -(other)
+    Color.new(self.v - other.v)
+  end
 end
