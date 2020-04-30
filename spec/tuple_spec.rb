@@ -43,3 +43,11 @@ describe '#point' do
     expect(p).to eq tuple(4, -4, 3, 1)
   end
 end
+
+describe '#vector' do
+  it 'should create tuples with w=0' do
+    p = vector(4, -4, 3)
+
+    expect(p).to eq tuple(4, -4, 3, 0)
+  end
+end

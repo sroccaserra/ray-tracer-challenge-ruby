@@ -1,19 +1,24 @@
+Tuple = Struct.new(:x, :y, :z, :w)
+
 def tuple(x, y, z, w)
   if w == 1.0
-    Point.new(x, y, z, w)
+    point(x, y, z)
   else
-    Vector.new(x, y, z, w)
+    vector(x, y, z)
   end
+end
+
+class Point < Tuple
 end
 
 def point(x, y, z)
   Point.new(x, y, z, 1)
 end
 
-Tuple = Struct.new(:x, :y, :z, :w)
-
-class Point < Tuple
-end
-
 class Vector < Tuple
 end
+
+def vector(x, y, z)
+  Vector.new(x, y, z, 0)
+end
+
