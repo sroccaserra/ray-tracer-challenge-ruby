@@ -35,3 +35,11 @@ describe 'Tuples' do
     end
   end
 end
+
+describe '#point' do
+  it 'should create tuples with w=1' do
+    p = point(4, -4, 3)
+
+    expect(p).to eq tuple(4, -4, 3, 1)
+  end
+end

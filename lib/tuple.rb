@@ -6,16 +6,11 @@ def tuple(x, y, z, w)
   end
 end
 
-class Tuple
-  attr_reader :x, :y, :z, :w
-
-  def initialize(x, y, z, w)
-    @x = x
-    @y = y
-    @z = z
-    @w = w
-  end
+def point(x, y, z)
+  Point.new(x, y, z, 1)
 end
+
+Tuple = Struct.new(:x, :y, :z, :w)
 
 class Point < Tuple
 end
