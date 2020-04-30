@@ -84,5 +84,17 @@ module RayTracer
     def substractFromVector(other)
       Vector.new(other.v - self.v, 0)
     end
+
+    def magnitude
+      v.magnitude
+    end
+
+    def normalize
+      Vector.new(v.normalize, 0)
+    end
+
+    def dot(other)
+      self.v.dot(other.v)
+    end
   end
 end

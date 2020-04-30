@@ -127,3 +127,37 @@ describe 'Tuple' do
     end
   end
 end
+
+describe 'Vector' do
+  describe '#magnitude' do
+    it 'should compute the magnitude of various vectors' do
+      expect(vector(1, 0, 0).magnitude).to eq 1
+      expect(vector(0, 1, 0).magnitude).to eq 1
+      expect(vector(0, 0, 1).magnitude).to eq 1
+      expect(vector(1, 2, 3).magnitude).to eq Math.sqrt(14)
+      expect(vector(-1, -2, -3).magnitude).to eq Math.sqrt(14)
+    end
+  end
+
+  describe '#normalize' do
+    it 'should normalize various vectors' do
+      expect(vector(4, 0, 0).normalize).to eq vector(1, 0, 0)
+      expect(vector(1, 2, 3).normalize).to eq vector(1/Math.sqrt(14),
+                                                     2/Math.sqrt(14),
+                                                     3/Math.sqrt(14))
+    end
+
+    it 'should make a vector with a magnitude of one' do
+      expect(vector(1, 2, 3).normalize.magnitude).to eq 1
+    end
+  end
+
+  describe '#dot' do
+    it 'should compute the dot product of two tuples' do
+      v1 = vector(1, 2, 3)
+      v2 = vector(2, 3, 4)
+
+      expect(v1.dot(v2)).to eq 20
+    end
+  end
+end
