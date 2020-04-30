@@ -17,27 +17,41 @@ def vector(x, y, z)
 end
 
 module RayTracer
-  Tuple = Struct.new(:v, :w)
-
-  class Tuple
+  Tuple = Struct.new(:v, :w) do
     def x
       v[0]
     end
+
     def y
       v[1]
     end
+
     def z
       v[2]
-    end
-
-    def +(other)
-      Point.new(self.v + other.v, 1)
     end
   end
 
   class Point < Tuple
+    def +(other)
+      other.addPoint(self)
+    end
+
+    def -(other)
+      Vector.new(self.v - other.v, self.w - other.w)
+    end
   end
 
   class Vector < Tuple
+    def +(other)
+      other.addVector(self)
+    end
+
+    def addPoint(p)
+      Point.new(self.v + p.v, 1)
+    end
+
+    def addVector(other)
+      Vector.new(self.v + other.v, 0)
+    end
   end
 end
