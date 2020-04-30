@@ -160,4 +160,14 @@ describe 'Vector' do
       expect(v1.dot(v2)).to eq 20
     end
   end
+
+  describe '#cross' do
+    it 'should compute the cross product of two vectors' do
+      a = vector(1, 2, 3)
+      b = vector(2, 3, 4)
+
+      expect(a.cross(b)).to eq vector(-1, 2, -1)
+      expect(b.cross(a)).to eq vector(1, -2, 1)
+    end
+  end
 end

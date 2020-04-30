@@ -96,5 +96,9 @@ module RayTracer
     def dot(other)
       self.v.dot(other.v)
     end
+
+    def cross(other)
+      Vector.new(self.v.cross(other.v), 0)
+    end
   end
 end
