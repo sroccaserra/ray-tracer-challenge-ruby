@@ -36,6 +36,10 @@ module RayTracer
     def negate
       Tuple.new(-v, -w)
     end
+
+    def *(scalar)
+      Tuple.new(v*scalar, w*scalar)
+    end
   end
 
   class Point < Tuple

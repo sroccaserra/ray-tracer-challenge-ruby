@@ -102,4 +102,18 @@ describe 'adding tuples' do
       expect(a.negate).to eq tuple(-1, 2, -3, 4)
     end
   end
+
+  describe '#*' do
+    it 'should multiply by a scalar' do
+      a = tuple(1, -2, 3, -4)
+
+      expect(a * 3.5).to eq tuple(3.5, -7, 10.5, -14)
+    end
+
+    it 'should multiply by a fraction' do
+      a = tuple(1, -2, 3, -4)
+
+      expect(a * 0.5).to eq tuple(0.5, -1.0, 1.5, -2)
+    end
+  end
 end
