@@ -40,6 +40,10 @@ module RayTracer
     def *(scalar)
       Tuple.new(v*scalar, w*scalar)
     end
+
+    def /(scalar)
+      Tuple.new(v/scalar, w/scalar)
+    end
   end
 
   class Point < Tuple

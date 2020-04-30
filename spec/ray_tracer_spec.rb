@@ -113,7 +113,15 @@ describe 'adding tuples' do
     it 'should multiply by a fraction' do
       a = tuple(1, -2, 3, -4)
 
-      expect(a * 0.5).to eq tuple(0.5, -1.0, 1.5, -2)
+      expect(a * 0.5).to eq tuple(0.5, -1, 1.5, -2)
+    end
+  end
+
+  describe '#/' do
+    it 'should divide a tuple by a scalar' do
+      a = tuple(1, -2, 3, -4)
+
+      expect(a / 2.0).to eq tuple(0.5, -1, 1.5, -2)
     end
   end
 end
