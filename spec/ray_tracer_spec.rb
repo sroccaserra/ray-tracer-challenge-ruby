@@ -87,4 +87,11 @@ describe 'adding tuples' do
 
     expect(v1 - v2).to eq vector(-2, -4, -6)
   end
+
+  it 'should substract from the zero vector' do
+    zero = vector(0, 0, 0)
+    v = vector(1, -2, 3)
+
+    expect(zero - v).to eq vector(-1, 2, -3)
+  end
 end
