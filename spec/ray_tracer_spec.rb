@@ -97,11 +97,11 @@ describe 'Tuple' do
     end
   end
 
-  describe '#negate' do
+  describe '#-@' do
     it 'should negate a tuple' do
       a = tuple(1, -2, 3, -4)
 
-      expect(a.negate).to eq tuple(-1, 2, -3, 4)
+      expect(-a).to eq tuple(-1, 2, -3, 4)
     end
   end
 

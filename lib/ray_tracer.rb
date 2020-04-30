@@ -33,7 +33,7 @@ module RayTracer
       v[2]
     end
 
-    def negate
+    def -@
       Tuple.new(-v, -w)
     end
 
