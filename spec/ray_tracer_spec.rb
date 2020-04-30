@@ -1,4 +1,4 @@
-require_relative '../lib/tuple.rb'
+require_relative '../lib/ray_tracer.rb'
 
 describe 'Tuples' do
   describe 'A tuple with w=1.0' do
@@ -14,7 +14,7 @@ describe 'Tuples' do
     it 'should be a point'do
       a = tuple(4.3, -4.2, 3.1, 1.0)
 
-      expect(a).to be_a Point
+      expect(a).to be_a RayTracer::Point
     end
   end
 
@@ -31,7 +31,7 @@ describe 'Tuples' do
     it 'should be a vector'do
       a = tuple(4.3, -4.2, 3.1, 0)
 
-      expect(a).to be_a Vector
+      expect(a).to be_a RayTracer::Vector
     end
   end
 end
