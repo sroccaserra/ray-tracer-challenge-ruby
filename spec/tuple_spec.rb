@@ -1,4 +1,4 @@
-require_relative '../lib/ray_tracer.rb'
+require_relative '../lib/tuple.rb'
 
 describe 'Tuple' do
   describe 'A tuple with w=1.0' do
