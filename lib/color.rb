@@ -16,4 +16,8 @@ Color = Struct.new(:v) do
   def blue
     v[2]
   end
+
+  def +(other)
+    Color.new(self.v + other.v)
+  end
 end
