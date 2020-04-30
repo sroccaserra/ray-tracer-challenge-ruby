@@ -1,10 +1,13 @@
 require 'matrix'
 
 def tuple(x, y, z, w)
-  if w == 1.0
+  case w
+  when 1.0
     point(x, y, z)
-  else
+  when 0
     vector(x, y, z)
+  else
+    RayTracer::Tuple.new(Vector[x, y, z], w)
   end
 end
 
@@ -28,6 +31,10 @@ module RayTracer
 
     def z
       v[2]
+    end
+
+    def negate
+      Tuple.new(-v, -w)
     end
   end
 

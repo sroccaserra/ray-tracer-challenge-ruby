@@ -94,4 +94,12 @@ describe 'adding tuples' do
 
     expect(zero - v).to eq vector(-1, 2, -3)
   end
+
+  describe '#negate' do
+    it 'should negate a tuple' do
+      a = tuple(1, -2, 3, -4)
+
+      expect(a.negate).to eq tuple(-1, 2, -3, 4)
+    end
+  end
 end
