@@ -14,7 +14,7 @@ describe 'Tuple' do
     it 'should be a point'do
       a = tuple(4.3, -4.2, 3.1, 1.0)
 
-      expect(a).to be_a RayTracer::Point
+      expect(a.is_point?).to be true
     end
   end
 
@@ -31,7 +31,7 @@ describe 'Tuple' do
     it 'should be a vector'do
       a = tuple(4.3, -4.2, 3.1, 0)
 
-      expect(a).to be_a RayTracer::Vector
+      expect(a.is_vector?).to be true
     end
   end
 
@@ -56,7 +56,7 @@ describe 'Tuple' do
       a = point(3, -2, 5)
       b = vector(-2, 3, 1)
 
-      expect(a + b).to eq point(1, 1, 6)
+      expect(a + b).to eql point(1, 1, 6)
     end
 
     it 'should add two vectors' do
@@ -168,6 +168,15 @@ describe 'Vector' do
 
       expect(a.cross(b)).to eq vector(-1, 2, -1)
       expect(b.cross(a)).to eq vector(1, -2, 1)
+    end
+  end
+
+  describe 'a complex operation' do
+    it 'should compute an adition and mul and normalize' do
+      velocity = vector(1, 1.8, 0).normalize * 11.25
+      p = point(0, 1, 0) + velocity
+
+      expect(p).to eq point(5.463482975759611, 10.834269356367301, 0)
     end
   end
 end
