@@ -18,4 +18,12 @@ class Canvas
   def pixel_at(x, y)
     @pixels[x + y*width]
   end
+
+  def rows
+    (0...@height).map do
+      |row_number|
+      offset = @width*row_number
+      @pixels[offset...offset+@width]
+    end
+  end
 end

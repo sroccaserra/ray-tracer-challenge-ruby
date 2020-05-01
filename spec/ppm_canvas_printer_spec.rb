@@ -19,7 +19,7 @@ describe 'PpmCanvasPrinter' do
   end
 
   describe 'PPM pixel data' do
-    it 'should print the pixel data' do
+    it 'should generate PPM lines from pixel data' do
       canvas = Canvas.new(5, 3)
       c1 = color(1.5, 0, 0)
       c2 = color(0, 0.5, 0)
