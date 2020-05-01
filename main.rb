@@ -4,8 +4,6 @@ require_relative 'lib/color'
 require_relative 'lib/ppm_canvas_printer'
 
 def main
-  c = Canvas.new(900, 550)
-
   gravity = vector(0, -0.1, 0)
   wind = vector(-0.01, 0, 0)
   start = point(0, 1, 0)
@@ -14,11 +12,20 @@ def main
   environment = Environment.new(gravity, wind)
   projectile = Projectile.new(environment, start, velocity)
 
-  c.write_pixel(projectile.x, projectile.y, color(1, 0, 0))
+  w = 900
+  h = 550
+  canvas = Canvas.new(w, h)
+  pen_color = color(1, 0.5, 0)
+  while projectile.y >= 0
+    canvas.write_pixel(projectile.x.round, h - projectile.y.round, pen_color)
+    projectile.tick
+  end
 
-  printer = PpmCanvasPrinter.new(c)
+  printer = PpmCanvasPrinter.new(canvas)
   puts printer.lines
 end
+
+Environment = Struct.new(:gravity, :wind)
 
 class Projectile
   def initialize(environment, position, velocity)
@@ -40,8 +47,6 @@ class Projectile
     @position.y
   end
 end
-
-Environment = Struct.new(:gravity, :wind)
 
 if __FILE__ == $0
   main
