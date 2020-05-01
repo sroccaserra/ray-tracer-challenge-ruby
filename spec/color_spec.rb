@@ -1,4 +1,4 @@
-require_relative '../lib/color.rb'
+require_relative '../lib/color'
 
 EPSILON = 0.00001
 

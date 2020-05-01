@@ -1,4 +1,4 @@
-require_relative '../lib/tuple.rb'
+require_relative '../lib/tuple'
 
 describe 'Tuple' do
   describe 'A tuple with w=1.0' do
