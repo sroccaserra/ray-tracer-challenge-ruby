@@ -12,6 +12,10 @@ class Canvas
   end
 
   def write_pixel(x, y, color)
-    @pixels[0] = color
+    @pixels[x + y*width] = color
+  end
+
+  def pixel_at(x, y)
+    @pixels[x + y*width]
   end
 end
