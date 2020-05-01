@@ -1,3 +1,5 @@
+MAX_PPM_LINE_SIZE = 70
+
 class PpmCanvasPrinter
   def initialize(canvas)
     @canvas = canvas
@@ -19,25 +21,29 @@ class PpmCanvasPrinter
     lines = []
     @canvas.rows.each do
       |pixel_row|
-      ints = pixel_row.flat_map do
-        |pixel|
-        pixel_to_ints(pixel)
-      end
+      ints = pixel_row_to_ints(pixel_row)
       line = ""
       ints.each do
         |int|
-        text = int.to_s
+        int_string = int.to_s
         delim = line.empty? ? "" : " "
-        if line.size + delim.size + text.size > 70
+        if line.size + delim.size + int_string.size > MAX_PPM_LINE_SIZE
           lines << line
-          line = text
+          line = int_string
         else
-          line = line + delim + text
+          line << delim + int_string
         end
       end
       lines << line
     end
     lines
+  end
+
+  def pixel_row_to_ints(pixel_row)
+    pixel_row.flat_map do
+      |pixel|
+      pixel_to_ints(pixel)
+    end
   end
 
   def pixel_to_ints(pixel)
