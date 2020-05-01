@@ -16,15 +16,33 @@ class PpmCanvasPrinter
   end
 
   def pixel_data_lines
-    @canvas.rows.map do
+    lines = []
+    @canvas.rows.each do
       |pixel_row|
-      pixel_row.map { |p| pixel_to_string(p) }.join(' ')
+      ints = pixel_row.flat_map do
+        |pixel|
+        pixel_to_ints(pixel)
+      end
+      line = ""
+      ints.each do
+        |int|
+        text = int.to_s
+        delim = line.empty? ? "" : " "
+        if line.size + delim.size + text.size > 70
+          lines << line
+          line = text
+        else
+          line = line + delim + text
+        end
+      end
+      lines << line
     end
+    lines
   end
 
-  def pixel_to_string(pixel)
-    return '0 0 0' if pixel.nil?
-    pixel.v.to_a.map { |x| float_value_to_0_255(x) }.join(' ')
+  def pixel_to_ints(pixel)
+    return [0, 0, 0] if pixel.nil?
+    pixel.v.to_a.map { |x| float_value_to_0_255(x) }
   end
 
   def float_value_to_0_255(x)

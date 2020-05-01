@@ -37,5 +37,25 @@ describe 'PpmCanvasPrinter' do
         '0 0 0 0 0 0 0 0 0 0 0 0 0 0 255',
       ]
     end
+
+    it 'should split long lines' do
+      canvas = Canvas.new(10, 2)
+      c = color(1, 0.8, 0.6)
+      10.times do
+        |x|
+        canvas.write_pixel(x, 0, c)
+        canvas.write_pixel(x, 1, c)
+      end
+      printer = PpmCanvasPrinter.new(canvas)
+
+      lines = printer.lines
+
+      expect(lines[3..6]).to eq [
+        '255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204',
+        '153 255 204 153 255 204 153 255 204 153 255 204 153',
+        '255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204',
+        '153 255 204 153 255 204 153 255 204 153 255 204 153',
+      ]
+    end
   end
 end
