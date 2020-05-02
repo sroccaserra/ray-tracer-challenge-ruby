@@ -166,4 +166,31 @@ describe 'RayTracerChallenge::Matrix' do
       expect(a.determinant).to be 17
     end
   end
+
+  describe 'Submatrixes' do
+    it 'should remove a row and a column from a 3x3 matrix' do
+      a = matrix(
+        [1, 5, 0],
+        [-3, 2, 7],
+        [0, 6, -3],
+      )
+
+      expect(a.submatrix(0, 2)).to eq matrix([-3, 2], [0, 6])
+    end
+
+    it 'should remove a row and a columt from a 4x4 matrix' do
+      a = matrix(
+        [-6, 1, 1, 6],
+        [-8, 5, 8, 6],
+        [-1, 0, 8, 2],
+        [-7, 1, -1, 1],
+      )
+
+      expect(a.submatrix(2, 1)).to eq matrix(
+        [-6, 1, 6],
+        [-8, 8, 6],
+        [-7, -1, 1]
+      )
+    end
+  end
 end

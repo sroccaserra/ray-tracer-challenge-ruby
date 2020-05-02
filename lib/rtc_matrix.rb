@@ -31,5 +31,9 @@ module RayTracerChallenge
     def determinant
       matrix.determinant
     end
+
+    def submatrix(row, column)
+      Matrix.new(matrix.first_minor(row, column))
+    end
   end
 end
