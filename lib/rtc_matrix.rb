@@ -6,6 +6,10 @@ def matrix(*rows)
   RayTracerChallenge::Matrix.new(::Matrix.rows(rows))
 end
 
+def identity_matrix
+  RayTracerChallenge::Matrix.new(::Matrix.diagonal(1, 1, 1, 1))
+end
+
 module RayTracerChallenge
   Matrix = Struct.new(:matrix) do
     def [](i, j)

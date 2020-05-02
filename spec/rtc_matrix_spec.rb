@@ -114,4 +114,23 @@ describe 'RayTracerChallenge::Matrix' do
       expect(a*b).to eq tuple(18, 24, 33, 1)
     end
   end
+
+  describe 'Identity matrix' do
+    it 'should leave a matrix unchanged after multiplication' do
+      a = matrix(
+        [0, 1, 2, 4],
+        [1, 2, 4, 8],
+        [2, 4, 8, 16],
+        [4, 8, 16, 32],
+      )
+
+      expect(a*identity_matrix).to eq a
+    end
+
+    it 'should leave a tuple unchanged after multiplication' do
+      a = tuple(1, 2, 3, 4)
+
+      expect(identity_matrix*a).to eq a
+    end
+  end
 end
