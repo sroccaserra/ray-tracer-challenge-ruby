@@ -193,4 +193,29 @@ describe 'RayTracerChallenge::Matrix' do
       )
     end
   end
+
+  describe 'Minors' do
+    it 'should compute the minor of a 3x3 matrix' do
+      a = matrix(
+        [3, 5, 0],
+        [2, -1, -7],
+        [6, -1, 5],
+      )
+
+      expect(a.minor(1, 0)).to be 25
+    end
+  end
+
+  describe 'Cofactors' do
+    it 'should compute the cofactors of a 3x3 matrix' do
+      a = matrix(
+        [3, 5, 0],
+        [2, -1, -7],
+        [6, -1, 5],
+      )
+
+      expect(a.cofactor(0, 0)).to be(-12)
+      expect(a.cofactor(1, 0)).to be(-25)
+    end
+  end
 end

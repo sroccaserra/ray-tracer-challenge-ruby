@@ -35,5 +35,13 @@ module RayTracerChallenge
     def submatrix(row, column)
       Matrix.new(matrix.first_minor(row, column))
     end
+
+    def minor(i, j)
+      matrix.first_minor(i, j).determinant
+    end
+
+    def cofactor(i, j)
+      matrix.cofactor(i, j)
+    end
   end
 end
