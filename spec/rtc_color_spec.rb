@@ -1,4 +1,4 @@
-require_relative '../lib/color'
+require_relative '../lib/rtc_color'
 
 EPSILON = 0.00001
 
