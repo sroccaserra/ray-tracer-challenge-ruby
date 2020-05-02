@@ -17,4 +17,28 @@ describe 'Matrix' do
     expect(m[3, 0]).to be 13.5
     expect(m[3, 2]).to be 15.5
   end
+
+  it 'should allow 2x2 dimensions' do
+    m = Matrix[
+      [-3, 5],
+      [1 , -2],
+    ]
+
+    expect(m[0,0]).to be(-3)
+    expect(m[0,1]).to be 5
+    expect(m[1,0]).to be 1
+    expect(m[1,1]).to be(-2)
+  end
+
+  it 'should allow 3x3 dimensions' do
+    m = Matrix[
+      [-3, 5, 0],
+      [1 , -2, -7],
+      [0 , 1, 1],
+    ]
+
+    expect(m[0,0]).to be(-3)
+    expect(m[1,1]).to be(-2)
+    expect(m[2,2]).to be 1
+  end
 end
