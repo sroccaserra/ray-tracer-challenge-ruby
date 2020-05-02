@@ -248,4 +248,81 @@ describe 'RayTracerChallenge::Matrix' do
       expect(a.determinant).to be(-4071)
     end
   end
+
+  describe 'Matrix inversion' do
+    it 'should compute the inverse of a 4x4 matrix' do
+      a = matrix(
+        [-5, 2, 6, -8],
+        [1, -5, 1, 8],
+        [7, 7, -6, -7],
+        [1, -3, 7, 4],
+      )
+
+      b = a.inverse
+
+      expect(a.determinant).to eq 532
+      expect(a.cofactor(2, 3)).to eq(-160)
+      expect(b[3, 2]).to eq(-160.0/532)
+      expect(a.cofactor(3, 2)).to eq 105
+      expect(b[2, 3]).to eq 105.0/532
+      expect(b).to eq matrix(
+        [Rational(29,133), Rational(60,133), Rational(32,133), Rational(-6,133)],
+        [Rational(-215,266), Rational(-775,532), Rational(-59,133), Rational(277,532)],
+        [Rational(-3,38), Rational(-17,76), Rational(-1,19), Rational(15,76)],
+        [Rational(-139,266), Rational(-433,532), Rational(-40,133), Rational(163,532)],
+      )
+    end
+
+    it 'should compute the inverse of another matrix' do
+      a = matrix(
+        [8, -5, 9, 2],
+        [7, 5, 6, 1],
+        [-6, 0, 9, 6],
+        [-3, 0, -9, -4],
+      )
+
+      expect(a.inverse).to eq matrix(
+        [Rational(-2,13), Rational(-2,13), Rational(-11,39), Rational(-7,13)],
+        [Rational(-1,13), Rational(8,65), Rational(1,39), Rational(2,65)],
+        [Rational(14,39), Rational(14,39), Rational(17,39), Rational(12,13)],
+        [Rational(-9,13), Rational(-9,13), Rational(-10,13), Rational(-25,13)],
+      )
+    end
+
+    it 'should compute the inverse of a third matrix' do
+      a = matrix(
+        [9, 3, 0, 9],
+        [-5, -2, -6, -3],
+        [-4, 9, 6, 4],
+        [-7, 6, 6, 2],
+      )
+
+      expect(a.inverse).to eq matrix(
+        [Rational(-11,270), Rational(-7,90), Rational(13,90), Rational(-2,9)],
+        [Rational(-7,90), Rational(1,30), Rational(11,30), Rational(-1,3)],
+        [Rational(-47,1620), Rational(-79,540), Rational(-59,540), Rational(7,54)],
+        [Rational(8,45), Rational(1,15), Rational(-4,15), Rational(1,3)],
+      )
+    end
+
+    describe 'Multiplying A*B by the inverse of B' do
+      it 'should return A' do
+        a = matrix(
+          [3, -9, 7, 3],
+          [3, -8, 2, -9],
+          [-4, 4, 4, 1],
+          [-6, 5, -1, 1]
+        )
+        b = matrix(
+          [8, 2, 2, 2],
+          [3, -1, 7, 0],
+          [7, 0, 5, 4],
+          [6, -2, 0, 5],
+        )
+        c = a*b
+
+        expect(c*b.inverse).to eq a
+      end
+    end
+  end
 end

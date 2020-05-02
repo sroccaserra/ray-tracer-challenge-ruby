@@ -43,5 +43,9 @@ module RayTracerChallenge
     def cofactor(i, j)
       matrix.cofactor(i, j)
     end
+
+    def inverse
+      Matrix.new(matrix.inverse)
+    end
   end
 end
