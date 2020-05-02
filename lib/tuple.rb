@@ -1,7 +1,7 @@
 require 'matrix'
 
 def tuple(x, y, z, w)
-  Tuple[x, y, z, w]
+  Tuple.new(Vector[x, y, z, w])
 end
 
 def point(x, y, z)
@@ -12,21 +12,21 @@ def vector(x, y, z)
   tuple(x, y, z, 0)
 end
 
-class Tuple < Vector
+Tuple = Struct.new(:vector) do
   def x
-    self[0]
+    vector[0]
   end
 
   def y
-    self[1]
+    vector[1]
   end
 
   def z
-    self[2]
+    vector[2]
   end
 
   def w
-    self[3]
+    vector[3]
   end
 
   def is_point?
@@ -37,12 +37,44 @@ class Tuple < Vector
     w == 0
   end
 
+  def +(other)
+    Tuple.new(vector+other.vector)
+  end
+
+  def -(other)
+    Tuple.new(vector-other.vector)
+  end
+
+  def -@
+    Tuple.new(-vector)
+  end
+
+  def *(scalar)
+    Tuple.new(vector*scalar)
+  end
+
+  def /(scalar)
+    Tuple.new(vector/scalar)
+  end
+
+  def magnitude
+    vector.magnitude
+  end
+
+  def normalize
+    Tuple.new(vector.normalize)
+  end
+
+  def dot(other)
+    vector.dot(other.vector)
+  end
+
   def cross(other)
-    Tuple[
-      self[1]*other[2] - self[2]*other[1],
-      self[2]*other[0] - self[0]*other[2],
-      self[0]*other[1] - self[1]*other[0],
+    Tuple.new(Vector[
+      vector[1]*other.vector[2] - vector[2]*other.vector[1],
+      vector[2]*other.vector[0] - vector[0]*other.vector[2],
+      vector[0]*other.vector[1] - vector[1]*other.vector[0],
       0
-    ]
+    ])
   end
 end
