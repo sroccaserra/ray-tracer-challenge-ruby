@@ -27,5 +27,9 @@ module RayTracerChallenge
     def transpose
       Matrix.new(matrix.transpose)
     end
+
+    def determinant
+      matrix.determinant
+    end
   end
 end

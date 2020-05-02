@@ -155,4 +155,15 @@ describe 'RayTracerChallenge::Matrix' do
       expect(identity_matrix.transpose).to eq identity_matrix
     end
   end
+
+  describe 'Determinant' do
+    it 'should compute for a 2x2 matrix' do
+      a = matrix(
+        [1, 5],
+        [-3, 2]
+      )
+
+      expect(a.determinant).to be 17
+    end
+  end
 end
