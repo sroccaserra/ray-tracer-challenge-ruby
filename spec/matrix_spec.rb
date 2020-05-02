@@ -1,5 +1,7 @@
 require 'matrix'
 
+require_relative '../lib/tuple'
+
 describe 'Matrix' do
   it 'should be queryable' do
     m = Matrix[
@@ -99,6 +101,18 @@ describe 'Matrix' do
         [40, 58, 110, 102],
         [16, 26, 46, 42],
       ]
+    end
+
+    it 'should multiply by a tuple' do
+      a = Matrix[
+        [1, 2, 3, 4],
+        [2, 4, 4, 2],
+        [8, 6, 4, 1],
+        [0, 0, 0, 1],
+      ]
+      b = tuple(1, 2, 3, 1)
+
+      expect(a*b.to_v).to eq tuple(18, 24, 33, 1).to_v
     end
   end
 end

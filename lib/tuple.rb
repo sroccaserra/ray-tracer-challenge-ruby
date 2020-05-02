@@ -68,4 +68,8 @@ Tuple = Struct.new(:v, :w) do
   def cross(other)
     Tuple.new(self.v.cross(other.v), 0)
   end
+
+  def to_v
+    Vector[v[0], v[1], v[2], w]
+  end
 end
