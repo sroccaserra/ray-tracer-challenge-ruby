@@ -8,21 +8,15 @@ describe 'Rotations' do
       half_quarter = rotation_x(Math::PI/4)
       full_quarter = rotation_x(Math::PI/2)
 
-      expect((half_quarter*p -
-              point(0, Math.sqrt(2)/2, Math.sqrt(2)/2)).magnitude)
-        .to be < EPSILON
-      expect((full_quarter*p -
-              point(0, 0, 1)).magnitude)
-        .to be < EPSILON
+      expect(half_quarter*p).to eq_epsilon point(0, Math.sqrt(2)/2, Math.sqrt(2)/2)
+      expect(full_quarter*p).to eq_epsilon point(0, 0, 1)
     end
 
     it 'should rotate in other direction when inversed' do
       p = point(0, 1, 0)
       half_quarter = rotation_x(Math::PI/4)
 
-      expect((half_quarter.inverse*p -
-              point(0, Math.sqrt(2)/2, -Math.sqrt(2)/2)).magnitude)
-        .to be < EPSILON
+      expect(half_quarter.inverse*p).to eq_epsilon point(0, Math.sqrt(2)/2, -Math.sqrt(2)/2)
     end
   end
 end
