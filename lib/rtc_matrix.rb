@@ -23,5 +23,9 @@ module RayTracerChallenge
         Matrix.new(matrix*other.matrix)
       end
     end
+
+    def transpose
+      Matrix.new(matrix.transpose)
+    end
   end
 end

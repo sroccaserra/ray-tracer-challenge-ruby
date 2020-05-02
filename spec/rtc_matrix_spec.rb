@@ -133,4 +133,26 @@ describe 'RayTracerChallenge::Matrix' do
       expect(identity_matrix*a).to eq a
     end
   end
+
+  describe 'Transposition' do
+    it 'should transpose a matrix' do
+      a = matrix(
+        [0, 9, 3, 0],
+        [9, 8, 0, 8],
+        [1, 8, 5, 3],
+        [0, 0, 5, 8],
+      )
+
+      expect(a.transpose).to eq matrix(
+        [0, 9, 1, 0],
+        [9, 8, 8, 0],
+        [3, 0, 5, 5],
+        [0, 8, 3, 8],
+      )
+    end
+
+    it 'should leave the identity_matrix unchanged' do
+      expect(identity_matrix.transpose).to eq identity_matrix
+    end
+  end
 end
