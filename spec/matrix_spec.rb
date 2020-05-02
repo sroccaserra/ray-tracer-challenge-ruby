@@ -41,4 +41,40 @@ describe 'Matrix' do
     expect(m[1,1]).to be(-2)
     expect(m[2,2]).to be 1
   end
+
+  describe 'matrix comparison' do
+    it 'should be equal' do
+      a = Matrix[
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 8, 7, 6],
+        [5, 4, 3, 2],
+      ]
+      b = Matrix[
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 8, 7, 6],
+        [5, 4, 3, 2],
+      ]
+
+      expect(a).to eq b
+    end
+
+    it 'should be different' do
+      a = Matrix[
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 8, 7, 6],
+        [5, 4, 3, 2],
+      ]
+      b = Matrix[
+        [2, 3, 4, 5],
+        [6, 7, 8, 9],
+        [8, 7, 6, 5],
+        [4, 3, 2, 1],
+      ]
+
+      expect(a).not_to eq b
+    end
+  end
 end
