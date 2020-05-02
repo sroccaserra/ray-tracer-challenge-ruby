@@ -156,7 +156,7 @@ describe 'RayTracerChallenge::Matrix' do
     end
   end
 
-  describe 'Determinant' do
+  describe 'Determinant of a 2x2 matrix' do
     it 'should compute for a 2x2 matrix' do
       a = matrix(
         [1, 5],
@@ -216,6 +216,36 @@ describe 'RayTracerChallenge::Matrix' do
 
       expect(a.cofactor(0, 0)).to be(-12)
       expect(a.cofactor(1, 0)).to be(-25)
+    end
+  end
+
+  describe 'Determinant of larger matrix' do
+    it 'should compute the determinant of a 3x3 matrix' do
+      a = matrix(
+        [1, 2, 6],
+        [-5, 8, -4],
+        [2, 6, 4],
+      )
+
+      expect(a.cofactor(0, 0)).to be 56
+      expect(a.cofactor(0, 1)).to be 12
+      expect(a.cofactor(0, 2)).to be(-46)
+      expect(a.determinant).to be(-196)
+    end
+
+    it 'should compute the determinant of a 4x4 matrix' do
+      a = matrix(
+        [-2, -8, 3, 5],
+        [-3, 1, 7, 3],
+        [1, 2, -9, 6],
+        [-6, 7, 7, -9],
+      )
+
+      expect(a.cofactor(0, 0)).to be 690
+      expect(a.cofactor(0, 1)).to be 447
+      expect(a.cofactor(0, 2)).to be 210
+      expect(a.cofactor(0, 3)).to be 51
+      expect(a.determinant).to be(-4071)
     end
   end
 end
