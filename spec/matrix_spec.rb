@@ -112,7 +112,7 @@ describe 'Matrix' do
       ]
       b = tuple(1, 2, 3, 1)
 
-      expect(a*b.to_v).to eq tuple(18, 24, 33, 1).to_v
+      expect(a*b).to eq tuple(18, 24, 33, 1)
     end
   end
 end
