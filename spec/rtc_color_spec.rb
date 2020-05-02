@@ -1,7 +1,5 @@
 require_relative '../lib/rtc_color'
 
-EPSILON = 0.00001
-
 describe 'Color' do
   it 'should have red, green, blue components' do
     c = color(-0.5, 0.4, 1.7)
