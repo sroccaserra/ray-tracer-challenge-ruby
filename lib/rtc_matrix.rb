@@ -7,7 +7,7 @@ def matrix(*rows)
 end
 
 def identity_matrix
-  RayTracerChallenge::Matrix.new(::Matrix.diagonal(1, 1, 1, 1))
+  RayTracerChallenge::Matrix.new(::Matrix.identity(4))
 end
 
 module RayTracerChallenge
