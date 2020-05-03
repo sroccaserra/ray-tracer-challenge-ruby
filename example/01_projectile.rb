@@ -1,7 +1,7 @@
-require_relative './lib/color'
-require_relative './lib/math/tuple'
-require_relative './lib/render/canvas'
-require_relative './lib/render/ppm_canvas_printer'
+require_relative '../lib/color'
+require_relative '../lib/math/tuple'
+require_relative '../lib/render/canvas'
+require_relative '../lib/render/ppm_canvas_printer'
 
 def main
   gravity = vector(0, -0.1, 0)
