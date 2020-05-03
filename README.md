@@ -1,10 +1,14 @@
 ## Example
 
-Use of tuples, colors, and ppm printer to display the trajectory of a projectile :
+Use of tuples, translation, scaling, rotation, colors, canvas and ppm printer to display 12 clock positions :
 
-    $ ruby main.rb > images/image.ppm
+    $ ruby clock.rb > images/clock.ppm
 
-![Alt text](/images/image.png?raw=true)
+<img alt="Computed image" src="/images/clock.png?raw=true" width="256" height="256" style="image-rendering: pixelated; image-rendering: crisp-edges;" />
+
+Note: you can use [ImageMagick](https://imagemagick.org) to convert ppm files to png:
+
+    $ convert images/clock.ppm images/clock.png
 
 ## References
 
