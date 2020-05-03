@@ -1,3 +1,5 @@
+require_relative './intersection'
+
 class Sphere
   def initialize(center, radius)
     @center = center
@@ -14,7 +16,9 @@ class Sphere
       []
     else
       sqrt_delta = Math.sqrt(delta)
-      [(-b - sqrt_delta)/2, (-b + sqrt_delta)/2]
+      t1 = (-b - sqrt_delta)/2
+      t2 = (-b + sqrt_delta)/2
+      [Intersection.new(t1, self), Intersection.new(t2, self)]
     end
   end
 end

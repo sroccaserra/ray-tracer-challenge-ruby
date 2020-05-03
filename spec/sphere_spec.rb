@@ -12,7 +12,7 @@ describe 'Sphere' do
 
     xs = @sphere.intersect(r)
 
-    expect(xs).to eq [4, 6]
+    expect(xs.map(&:t)).to eq [4, 6]
   end
 
   it 'intersects with a ray at a tangent' do
@@ -20,7 +20,7 @@ describe 'Sphere' do
 
     xs = @sphere.intersect(r)
 
-    expect(xs).to eq [5, 5]
+    expect(xs.map(&:t)).to eq [5, 5]
   end
 
   it 'is missed by a ray' do
@@ -36,7 +36,7 @@ describe 'Sphere' do
 
     xs = @sphere.intersect(r)
 
-    expect(xs).to eq [-1, 1]
+    expect(xs.map(&:t)).to eq [-1, 1]
   end
 
   it 'intersects even when behind a ray' do
@@ -44,6 +44,6 @@ describe 'Sphere' do
 
     xs = @sphere.intersect(r)
 
-    expect(xs).to eq [-6, -4]
+    expect(xs.map(&:t)).to eq [-6, -4]
   end
 end
