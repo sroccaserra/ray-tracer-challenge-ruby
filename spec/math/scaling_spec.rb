@@ -1,5 +1,5 @@
-require 'math/rtc_tuple'
 require 'math/scaling'
+require 'math/tuple'
 
 describe 'Scaling' do
   it 'should scale a point' do

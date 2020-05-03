@@ -1,5 +1,5 @@
 require 'math/rotation'
-require 'math/rtc_tuple'
+require 'math/tuple'
 
 describe 'Rotations' do
   describe 'Around the x axis' do

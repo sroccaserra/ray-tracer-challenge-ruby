@@ -1,6 +1,6 @@
 require 'matrix'
 
-require_relative './rtc_tuple'
+require_relative './tuple'
 
 def matrix(*rows)
   RayTracerChallenge::Matrix.new(::Matrix.rows(rows))

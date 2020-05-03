@@ -1,5 +1,5 @@
-require 'math/rtc_tuple'
 require 'math/translation'
+require 'math/tuple'
 
 describe 'Translations' do
   it 'should translate a point' do

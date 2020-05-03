@@ -1,4 +1,4 @@
-require_relative '../lib/math/rtc_tuple'
+require_relative '../lib/math/tuple'
 require_relative '../lib/ray'
 
 describe 'Ray' do

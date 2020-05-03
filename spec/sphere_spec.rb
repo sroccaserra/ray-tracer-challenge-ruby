@@ -1,4 +1,4 @@
-require 'math/rtc_tuple'
+require 'math/tuple'
 require 'ray'
 require 'sphere'
 

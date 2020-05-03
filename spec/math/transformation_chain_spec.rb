@@ -1,7 +1,7 @@
 require 'math/rotation'
-require 'math/rtc_tuple'
 require 'math/scaling'
 require 'math/translation'
+require 'math/tuple'
 
 describe 'Chaining transformations' do
   before(:each) do

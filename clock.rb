@@ -1,8 +1,8 @@
 require_relative './lib/color'
 require_relative './lib/math/rotation'
-require_relative './lib/math/rtc_tuple'
 require_relative './lib/math/scaling'
 require_relative './lib/math/translation'
+require_relative './lib/math/tuple'
 require_relative './lib/render/canvas'
 require_relative './lib/render/ppm_canvas_printer'
 
