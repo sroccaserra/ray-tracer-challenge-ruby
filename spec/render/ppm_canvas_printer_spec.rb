@@ -1,6 +1,6 @@
-require_relative '../../lib/render/canvas'
-require_relative '../../lib/render/ppm_canvas_printer'
-require_relative '../../lib/color'
+require 'color'
+require 'render/canvas'
+require 'render/ppm_canvas_printer'
 
 describe 'PpmCanvasPrinter' do
   describe 'PPM Header' do

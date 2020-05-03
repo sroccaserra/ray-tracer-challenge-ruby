@@ -1,4 +1,4 @@
-require_relative '../lib/color'
+require 'color'
 
 describe 'Color' do
   it 'should have red, green, blue components' do

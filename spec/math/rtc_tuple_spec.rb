@@ -1,4 +1,4 @@
-require_relative '../../lib/math/rtc_tuple'
+require 'math/rtc_tuple'
 
 describe 'Tuple' do
   describe 'A tuple with w=1.0' do

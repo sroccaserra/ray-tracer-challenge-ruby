@@ -1,5 +1,5 @@
-require_relative '../../lib/math/rtc_matrix'
-require_relative '../../lib/math/rtc_tuple'
+require 'math/rtc_matrix'
+require 'math/rtc_tuple'
 
 describe 'RayTracerChallenge::Matrix' do
   it 'should be queryable' do

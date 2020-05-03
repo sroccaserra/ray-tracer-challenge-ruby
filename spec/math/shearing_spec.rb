@@ -1,5 +1,5 @@
-require_relative '../../lib/math/rtc_tuple'
-require_relative '../../lib/math/shearing'
+require 'math/rtc_tuple'
+require 'math/shearing'
 
 describe 'Shearings' do
   it 'should move x in proportion to y' do
