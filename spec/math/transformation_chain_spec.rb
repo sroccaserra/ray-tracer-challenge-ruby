@@ -1,7 +1,7 @@
-require_relative '../lib/rotation'
-require_relative '../lib/rtc_tuple'
-require_relative '../lib/scaling'
-require_relative '../lib/translation'
+require_relative '../../lib/math/rotation'
+require_relative '../../lib/math/rtc_tuple'
+require_relative '../../lib/math/scaling'
+require_relative '../../lib/math/translation'
 
 describe 'Chaining transformations' do
   before(:each) do

@@ -1,5 +1,5 @@
-require_relative '../lib/rtc_tuple'
-require_relative '../lib/scaling'
+require_relative '../../lib/math/rtc_tuple'
+require_relative '../../lib/math/scaling'
 
 describe 'Scaling' do
   it 'should scale a point' do

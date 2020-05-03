@@ -1,5 +1,5 @@
 require_relative '../../lib/render/canvas'
-require_relative '../../lib/rtc_color'
+require_relative '../../lib/color'
 
 describe 'Canvas' do
   before(:each) do

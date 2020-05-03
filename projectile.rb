@@ -1,7 +1,7 @@
+require_relative './lib/color'
+require_relative './lib/math/rtc_tuple'
 require_relative './lib/render/canvas'
 require_relative './lib/render/ppm_canvas_printer'
-require_relative './lib/rtc_color'
-require_relative './lib/rtc_tuple'
 
 def main
   gravity = vector(0, -0.1, 0)
@@ -17,7 +17,7 @@ def main
   canvas = Canvas.new(w, h)
   pen_color = color(1, 0.5, 0)
   while projectile.y >= 0
-    canvas.write_pixel(projectile.x.round, h - projectile.y.round, pen_color)
+    canvas.write_pixel(projectile.x.floor, h - projectile.y.floor, pen_color)
     projectile.tick
   end
 

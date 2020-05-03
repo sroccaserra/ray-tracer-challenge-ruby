@@ -1,10 +1,10 @@
+require_relative './lib/color'
+require_relative './lib/math/rotation'
+require_relative './lib/math/rtc_tuple'
+require_relative './lib/math/scaling'
+require_relative './lib/math/translation'
 require_relative './lib/render/canvas'
 require_relative './lib/render/ppm_canvas_printer'
-require_relative './lib/rotation'
-require_relative './lib/rtc_color'
-require_relative './lib/rtc_tuple'
-require_relative './lib/scaling'
-require_relative './lib/translation'
 
 def main
   w = 128

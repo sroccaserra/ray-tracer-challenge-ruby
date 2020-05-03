@@ -1,5 +1,5 @@
-require_relative '../lib/rtc_tuple'
-require_relative '../lib/translation'
+require_relative '../../lib/math/rtc_tuple'
+require_relative '../../lib/math/translation'
 
 describe 'Translations' do
   it 'should translate a point' do
