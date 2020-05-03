@@ -1,4 +1,4 @@
-require_relative './rtc_matrix'
+require_relative './matrix'
 
 def shearing(x_y, x_z, y_x, y_z, z_x, z_y)
   matrix(

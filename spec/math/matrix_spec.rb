@@ -1,4 +1,4 @@
-require 'math/rtc_matrix'
+require 'math/matrix'
 require 'math/rtc_tuple'
 
 describe 'RayTracerChallenge::Matrix' do

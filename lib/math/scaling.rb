@@ -1,4 +1,4 @@
-require_relative './rtc_matrix'
+require_relative './matrix'
 
 def scaling(x, y, z)
   matrix(

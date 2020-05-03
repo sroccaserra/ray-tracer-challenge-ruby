@@ -1,4 +1,4 @@
-require_relative './rtc_matrix'
+require_relative './matrix'
 
 def translation(x, y, z)
   matrix(
