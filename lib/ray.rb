@@ -1,4 +1,6 @@
 class Ray
+  attr_reader :origin, :direction
+
   def initialize(origin, direction)
     @origin = origin
     @direction = direction

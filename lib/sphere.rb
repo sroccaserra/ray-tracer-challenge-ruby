@@ -5,6 +5,16 @@ class Sphere
   end
 
   def intersect(ray)
-    [4, 6]
+    sphere_to_ray_vector = ray.origin - point(0, 0, 0)
+    b = 2*ray.direction.normalize.dot(sphere_to_ray_vector)
+    c = sphere_to_ray_vector.dot(sphere_to_ray_vector) - 1
+    delta = b.abs2 - 4*c
+
+    if delta < 0
+      []
+    else
+      sqrt_delta = Math.sqrt(delta)
+      [(-b - sqrt_delta)/2, (-b + sqrt_delta)/2]
+    end
   end
 end
