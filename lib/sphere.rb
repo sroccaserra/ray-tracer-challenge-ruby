@@ -1,10 +1,16 @@
+require_relative './math/matrix'
 require_relative './intersection'
 
 class Sphere
+  def initialize(transformation = identity_matrix)
+    @transformation = transformation
+  end
+
   def intersect(ray)
-    sphere_to_ray_vector = ray.origin - point(0, 0, 0)
-    a = ray.direction.dot(ray.direction)
-    b = 2*ray.direction.dot(sphere_to_ray_vector)
+    transformed_ray = ray.transform(@transformation.inverse)
+    sphere_to_ray_vector = transformed_ray.origin - point(0, 0, 0)
+    a = transformed_ray.direction.dot(transformed_ray.direction)
+    b = 2*transformed_ray.direction.dot(sphere_to_ray_vector)
     c = sphere_to_ray_vector.dot(sphere_to_ray_vector) - 1
     delta = b.abs2 - 4*a*c
 
