@@ -1,11 +1,6 @@
 require_relative './intersection'
 
 class Sphere
-  def initialize(center, radius)
-    @center = center
-    @radius = radius
-  end
-
   def intersect(ray)
     sphere_to_ray_vector = ray.origin - point(0, 0, 0)
     b = 2*ray.direction.normalize.dot(sphere_to_ray_vector)

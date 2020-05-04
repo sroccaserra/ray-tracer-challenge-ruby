@@ -4,7 +4,7 @@ require 'sphere'
 
 describe 'Intersection' do
   before(:each) do
-    @sphere = Sphere.new(point(0, 0, 0), 1)
+    @sphere = Sphere.new()
   end
 
   it 'finds the hit when all intersections have positive t' do

@@ -4,7 +4,7 @@ require 'sphere'
 
 describe 'Sphere' do
   before(:each) do
-    @sphere = Sphere.new(point(0, 0, 0), 1)
+    @sphere = Sphere.new()
   end
 
   it 'intersects with a ray at two points' do
