@@ -1,12 +1,9 @@
-class Ray
-  attr_reader :origin, :direction
-
-  def initialize(origin, direction)
-    @origin = origin
-    @direction = direction
+Ray = Struct.new(:origin, :direction) do
+  def position(t)
+    origin+direction*t
   end
 
-  def position(t)
-    @origin+@direction*t
+  def transform(m)
+    Ray.new(m*origin, direction)
   end
 end
