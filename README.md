@@ -1,14 +1,14 @@
 ## Example
 
-Use of tuples, translation, scaling, rotation, colors, canvas and ppm printer to display 12 clock positions :
+Display an unlit centered sphere. Color is a linear function of distance from sphere to the eye.
 
-    $ ruby example/02_clock.rb > images/02_clock.ppm
+    $ ruby example/03_sphere.rb > images/03_sphere.ppm
 
-<img alt="Computed image" src="/images/02_clock.png?raw=true" width="256" height="256" style="image-rendering: pixelated; image-rendering: crisp-edges;" />
+<img alt="Image of a sphere" src="/images/03_sphere.png?raw=true" width="256" height="256" />
 
-Note: you can use [ImageMagick](https://imagemagick.org) to convert ppm files to png:
+Note: on macOS you can use Preview to open ppm files. In other OSes you can use most image editing programs like GIMP. You can also use [ImageMagick](https://imagemagick.org) to convert ppm files to png:
 
-    $ convert images/02_clock.ppm images/02_clock.png
+    $ convert images/03_sphere.ppm images/03_sphere.png
 
 ## References
 
