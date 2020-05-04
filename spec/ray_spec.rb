@@ -14,20 +14,20 @@ describe 'Ray' do
   end
 
   describe 'transformations' do
-    it 'translates' do
-      r = Ray.new(point(1, 2, 3), vector(0, 1, 0))
+    before(:each)  do
+      @ray = Ray.new(point(1, 2, 3), vector(0, 1, 0))
+    end
 
+    it 'translates' do
       m = translation(3, 4, 5)
 
-      expect(r.transform(m)).to eq Ray.new(point(4, 6, 8), vector(0, 1, 0))
+      expect(@ray.transform(m)).to eq Ray.new(point(4, 6, 8), vector(0, 1, 0))
     end
 
     it 'scales' do
-      r = Ray.new(point(1, 2, 3), vector(0, 1, 0))
-
       m = scaling(2, 3, 4)
 
-      expect(r.transform(m)).to eq Ray.new(point(2, 6, 12), vector(0, 3, 0))
+      expect(@ray.transform(m)).to eq Ray.new(point(2, 6, 12), vector(0, 3, 0))
     end
   end
 end
