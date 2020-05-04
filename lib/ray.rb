@@ -4,6 +4,6 @@ Ray = Struct.new(:origin, :direction) do
   end
 
   def transform(m)
-    Ray.new(m*origin, direction)
+    Ray.new(m*origin, m*direction)
   end
 end

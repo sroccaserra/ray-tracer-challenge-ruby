@@ -1,3 +1,4 @@
+require_relative '../lib/math/scaling'
 require_relative '../lib/math/translation'
 require_relative '../lib/math/tuple'
 require_relative '../lib/ray'
@@ -12,11 +13,21 @@ describe 'Ray' do
     expect(r.position(2.5)).to eq point(4.5, 3, 4)
   end
 
-  it 'translates' do
-    r = Ray.new(point(1, 2, 3), vector(0, 1, 0))
+  describe 'transformations' do
+    it 'translates' do
+      r = Ray.new(point(1, 2, 3), vector(0, 1, 0))
 
-    m = translation(3, 4, 5)
+      m = translation(3, 4, 5)
 
-    expect(r.transform(m)).to eq Ray.new(point(4, 6, 8), vector(0, 1, 0))
+      expect(r.transform(m)).to eq Ray.new(point(4, 6, 8), vector(0, 1, 0))
+    end
+
+    it 'scales' do
+      r = Ray.new(point(1, 2, 3), vector(0, 1, 0))
+
+      m = scaling(2, 3, 4)
+
+      expect(r.transform(m)).to eq Ray.new(point(2, 6, 12), vector(0, 3, 0))
+    end
   end
 end
