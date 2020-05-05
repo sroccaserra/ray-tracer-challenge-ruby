@@ -8,7 +8,7 @@ require_relative '../lib/sphere'
 
 def main
   w = 256
-  h = 256
+  h = w
   canvas = Canvas.new(w, h)
 
   ray_origin = point(0, 0, -5)
@@ -34,7 +34,10 @@ def main
       xs = sphere.intersect(ray)
 
       if !xs.empty?
-        pen_color = color(5-hit(xs).t, 0, 0)
+        depth_ratio = 4.9-hit(xs).t
+        gradiant_g = (screen_x.to_f)*(h-screen_y)/(w*h)
+        gradiant_b = screen_x.to_f*screen_y/(w*h)
+        pen_color = color(depth_ratio, gradiant_g, gradiant_b)
         canvas.write_pixel(screen_x, screen_y, pen_color)
       end
     end
