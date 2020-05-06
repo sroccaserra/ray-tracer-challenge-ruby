@@ -6,13 +6,13 @@ describe 'Canvas' do
     @c = Canvas.new(10, 20)
   end
 
-  it 'should be blank at creation' do
+  it 'is blank at creation' do
     expect(@c.width).to be 10
     expect(@c.height).to be 20
     expect(@c.is_blank?).to be true
   end
 
-  it 'should allow writing pixels' do
+  it 'allows writing pixels' do
     red = color(1, 0, 0)
 
     @c.write_pixel(2, 3, red)
@@ -20,7 +20,7 @@ describe 'Canvas' do
     expect(@c.is_blank?).to be false
   end
 
-  it 'should allow reading pixels' do
+  it 'allows reading pixels' do
     red = color(1, 0, 0)
     blue = color(0, 0, 1)
 

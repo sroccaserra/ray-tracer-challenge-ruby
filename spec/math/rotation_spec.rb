@@ -3,7 +3,7 @@ require 'math/tuple'
 
 describe 'Rotations' do
   describe 'Around the x axis' do
-    it 'should allow rotation' do
+    it 'allows rotation' do
       p = point(0, 1, 0)
       half_quarter = rotation_x(Math::PI/4)
       full_quarter = rotation_x(Math::PI/2)
@@ -12,7 +12,7 @@ describe 'Rotations' do
       expect(full_quarter*p).to eq_epsilon point(0, 0, 1)
     end
 
-    it 'should rotate in other direction when inversed' do
+    it 'rotates in other direction when inversed' do
       p = point(0, 1, 0)
       half_quarter = rotation_x(Math::PI/4)
 
@@ -21,7 +21,7 @@ describe 'Rotations' do
   end
 
   describe 'Around the y axis' do
-    it 'should allow rotation' do
+    it 'allows rotation' do
       p = point(0, 0, 1)
 
       half_quarter = rotation_y(Math::PI/4)
@@ -33,7 +33,7 @@ describe 'Rotations' do
   end
 
   describe 'Around the z axis' do
-    it 'should allow rotation' do
+    it 'allows rotation' do
       p = point(0, 1, 0)
 
       half_quarter = rotation_z(Math::PI/4)

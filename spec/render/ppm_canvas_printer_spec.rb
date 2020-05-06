@@ -6,7 +6,7 @@ describe 'PpmCanvasPrinter' do
   describe 'PPM Header' do
     [[5, 3], [4, 6]].each do
       |params|
-      it 'should construct the PPM header' do
+      it 'constructs the PPM header' do
         w, h = params
         canvas = Canvas.new(w, h)
         printer = PpmCanvasPrinter.new(canvas)
@@ -19,7 +19,7 @@ describe 'PpmCanvasPrinter' do
   end
 
   describe 'PPM pixel data' do
-    it 'should generate PPM lines from pixel data' do
+    it 'generates PPM lines from pixel data' do
       canvas = Canvas.new(5, 3)
       c1 = color(1.5, 0, 0)
       c2 = color(0, 0.5, 0)
@@ -38,7 +38,7 @@ describe 'PpmCanvasPrinter' do
       ]
     end
 
-    it 'should split long lines' do
+    it 'splits long lines' do
       canvas = Canvas.new(10, 2)
       c = color(1, 0.8, 0.6)
       10.times do

@@ -2,7 +2,7 @@ require 'math/matrix'
 require 'math/tuple'
 
 describe 'RayTracerChallenge::Matrix' do
-  it 'should be queryable' do
+  it 'is queryable' do
     m = matrix(
       [1, 2, 3, 4],
       [5.5, 6.5, 7.5, 8.5],
@@ -19,7 +19,7 @@ describe 'RayTracerChallenge::Matrix' do
     expect(m[3, 2]).to be 15.5
   end
 
-  it 'should allow 2x2 dimensions' do
+  it 'allows 2x2 dimensions' do
     m = matrix(
       [-3, 5],
       [1 , -2],
@@ -31,7 +31,7 @@ describe 'RayTracerChallenge::Matrix' do
     expect(m[1,1]).to be(-2)
   end
 
-  it 'should allow 3x3 dimensions' do
+  it 'allows 3x3 dimensions' do
     m = matrix(
       [-3, 5, 0],
       [1 , -2, -7],
@@ -44,7 +44,7 @@ describe 'RayTracerChallenge::Matrix' do
   end
 
   describe 'matrix comparison' do
-    it 'should be equal' do
+    it 'can be equal' do
       a = matrix(
         [1, 2, 3, 4],
         [5, 6, 7, 8],
@@ -61,7 +61,7 @@ describe 'RayTracerChallenge::Matrix' do
       expect(a).to eq b
     end
 
-    it 'should be different' do
+    it 'can be different' do
       a = matrix(
         [1, 2, 3, 4],
         [5, 6, 7, 8],
@@ -80,7 +80,7 @@ describe 'RayTracerChallenge::Matrix' do
   end
 
   describe 'Multiplication' do
-    it 'should multiply by another matrix' do
+    it 'multiplies by another matrix' do
       a = matrix(
         [1, 2, 3, 4],
         [5, 6, 7, 8],
@@ -102,7 +102,7 @@ describe 'RayTracerChallenge::Matrix' do
       )
     end
 
-    it 'should multiply by a tuple' do
+    it 'multiplies by a tuple' do
       a = matrix(
         [1, 2, 3, 4],
         [2, 4, 4, 2],
@@ -116,7 +116,7 @@ describe 'RayTracerChallenge::Matrix' do
   end
 
   describe 'Identity matrix' do
-    it 'should leave a matrix unchanged after multiplication' do
+    it 'leaves a matrix unchanged after multiplication' do
       a = matrix(
         [0, 1, 2, 4],
         [1, 2, 4, 8],
@@ -127,7 +127,7 @@ describe 'RayTracerChallenge::Matrix' do
       expect(a*identity_matrix).to eq a
     end
 
-    it 'should leave a tuple unchanged after multiplication' do
+    it 'leaves a tuple unchanged after multiplication' do
       a = tuple(1, 2, 3, 4)
 
       expect(identity_matrix*a).to eq a
@@ -135,7 +135,7 @@ describe 'RayTracerChallenge::Matrix' do
   end
 
   describe 'Transposition' do
-    it 'should transpose a matrix' do
+    it 'transposes a matrix' do
       a = matrix(
         [0, 9, 3, 0],
         [9, 8, 0, 8],
@@ -151,13 +151,13 @@ describe 'RayTracerChallenge::Matrix' do
       )
     end
 
-    it 'should leave the identity_matrix unchanged' do
+    it 'leaves the identity_matrix unchanged' do
       expect(identity_matrix.transpose).to eq identity_matrix
     end
   end
 
   describe 'Determinant of a 2x2 matrix' do
-    it 'should compute for a 2x2 matrix' do
+    it 'computes for a 2x2 matrix' do
       a = matrix(
         [1, 5],
         [-3, 2]
@@ -168,7 +168,7 @@ describe 'RayTracerChallenge::Matrix' do
   end
 
   describe 'Submatrixes' do
-    it 'should remove a row and a column from a 3x3 matrix' do
+    it 'removes a row and a column from a 3x3 matrix' do
       a = matrix(
         [1, 5, 0],
         [-3, 2, 7],
@@ -178,7 +178,7 @@ describe 'RayTracerChallenge::Matrix' do
       expect(a.submatrix(0, 2)).to eq matrix([-3, 2], [0, 6])
     end
 
-    it 'should remove a row and a columt from a 4x4 matrix' do
+    it 'removes a row and a columt from a 4x4 matrix' do
       a = matrix(
         [-6, 1, 1, 6],
         [-8, 5, 8, 6],
@@ -195,7 +195,7 @@ describe 'RayTracerChallenge::Matrix' do
   end
 
   describe 'Minors' do
-    it 'should compute the minor of a 3x3 matrix' do
+    it 'computes the minor of a 3x3 matrix' do
       a = matrix(
         [3, 5, 0],
         [2, -1, -7],
@@ -207,7 +207,7 @@ describe 'RayTracerChallenge::Matrix' do
   end
 
   describe 'Cofactors' do
-    it 'should compute the cofactors of a 3x3 matrix' do
+    it 'computes the cofactors of a 3x3 matrix' do
       a = matrix(
         [3, 5, 0],
         [2, -1, -7],
@@ -220,7 +220,7 @@ describe 'RayTracerChallenge::Matrix' do
   end
 
   describe 'Determinant of larger matrix' do
-    it 'should compute the determinant of a 3x3 matrix' do
+    it 'computes the determinant of a 3x3 matrix' do
       a = matrix(
         [1, 2, 6],
         [-5, 8, -4],
@@ -233,7 +233,7 @@ describe 'RayTracerChallenge::Matrix' do
       expect(a.determinant).to be(-196)
     end
 
-    it 'should compute the determinant of a 4x4 matrix' do
+    it 'computes the determinant of a 4x4 matrix' do
       a = matrix(
         [-2, -8, 3, 5],
         [-3, 1, 7, 3],
@@ -250,7 +250,7 @@ describe 'RayTracerChallenge::Matrix' do
   end
 
   describe 'Matrix inversion' do
-    it 'should compute the inverse of a 4x4 matrix' do
+    it 'computes the inverse of a 4x4 matrix' do
       a = matrix(
         [-5, 2, 6, -8],
         [1, -5, 1, 8],
@@ -273,7 +273,7 @@ describe 'RayTracerChallenge::Matrix' do
       )
     end
 
-    it 'should compute the inverse of another matrix' do
+    it 'computes the inverse of another matrix' do
       a = matrix(
         [8, -5, 9, 2],
         [7, 5, 6, 1],
@@ -289,7 +289,7 @@ describe 'RayTracerChallenge::Matrix' do
       )
     end
 
-    it 'should compute the inverse of a third matrix' do
+    it 'computes the inverse of a third matrix' do
       a = matrix(
         [9, 3, 0, 9],
         [-5, -2, -6, -3],
@@ -306,7 +306,7 @@ describe 'RayTracerChallenge::Matrix' do
     end
 
     describe 'Multiplying A*B by the inverse of B' do
-      it 'should return A' do
+      it 'returns A' do
         a = matrix(
           [3, -9, 7, 3],
           [3, -8, 2, -9],
