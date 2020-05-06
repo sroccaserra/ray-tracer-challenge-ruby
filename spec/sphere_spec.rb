@@ -54,20 +54,60 @@ describe 'Sphere' do
   describe 'transformed' do
     it 'intersects with a ray when scaled' do
       r = Ray.new(point(0, 0, -5), vector(0, 0, 1))
-      s = Sphere.new(scaling(2, 2, 2))
+      sphere = Sphere.new(scaling(2, 2, 2))
 
-      xs = s.intersect(r)
+      xs = sphere.intersect(r)
 
       expect(xs.map(&:t)).to eq [3, 7]
     end
 
     it 'misses the ray when translated' do
       r = Ray.new(point(0, 0, -5), vector(0, 0, 1))
-      s = Sphere.new(translation(5, 0, 0))
+      sphere = Sphere.new(translation(5, 0, 0))
 
-      xs = s.intersect(r)
+      xs = sphere.intersect(r)
 
       expect(xs).to be_empty
+    end
+  end
+
+  describe 'normals' do
+    before(:each) do
+      @sphere = Sphere.new()
+    end
+
+    it 'computes at a given point on the x axis' do
+      p = point(1, 0, 0)
+
+      expect(@sphere.normal_at(p)).to eq vector(1, 0, 0)
+    end
+
+    it 'computes at a given point on the y axis' do
+      p = point(0, 1, 0)
+
+      expect(@sphere.normal_at(p)).to eq vector(0, 1, 0)
+    end
+
+    it 'computes at a given point on the z axis' do
+      p = point(0, 0, 1)
+
+      expect(@sphere.normal_at(p)).to eq vector(0, 0, 1)
+    end
+
+    it 'computes at a non axial point' do
+      u = Math.sqrt(3)/3
+      p = point(u, u, u)
+
+      expect(@sphere.normal_at(p)).to eq vector(u, u, u)
+    end
+
+    it 'returns a normalized vector' do
+      u = Math.sqrt(3)/3
+      p = point(u, u, u)
+
+      n = @sphere.normal_at(p)
+
+      expect(n.normalize).to eq n
     end
   end
 end

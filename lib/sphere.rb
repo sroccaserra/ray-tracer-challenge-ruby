@@ -1,4 +1,5 @@
 require_relative './math/matrix'
+require_relative './math/tuple'
 require_relative './intersection'
 
 class Sphere
@@ -22,5 +23,9 @@ class Sphere
       t2 = (-b + sqrt_delta)/(2*a)
       [Intersection.new(t1, self), Intersection.new(t2, self)]
     end
+  end
+
+  def normal_at(p)
+    (p - point(0, 0, 0)).normalize
   end
 end
