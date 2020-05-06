@@ -78,3 +78,6 @@ Tuple = Struct.new(:vector) do
     ])
   end
 end
+
+NULL_POINT = point(0, 0, 0).freeze
+NULL_VECTOR = vector(0, 0, 0).freeze

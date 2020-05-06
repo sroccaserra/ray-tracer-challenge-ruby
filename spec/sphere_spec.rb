@@ -35,7 +35,7 @@ describe 'Sphere' do
     end
 
     it 'intersects whith a ray that originates inside itself' do
-      r = Ray.new(point(0, 0, 0), vector(0, 0, 1))
+      r = Ray.new(NULL_POINT, vector(0, 0, 1))
 
       xs = @sphere.intersect(r)
 

@@ -9,7 +9,7 @@ class Sphere
 
   def intersect(ray)
     transformed_ray = ray.transform(@transformation.inverse)
-    sphere_to_ray_vector = transformed_ray.origin - point(0, 0, 0)
+    sphere_to_ray_vector = transformed_ray.origin - NULL_POINT
     a = transformed_ray.direction.dot(transformed_ray.direction)
     b = 2*transformed_ray.direction.dot(sphere_to_ray_vector)
     c = sphere_to_ray_vector.dot(sphere_to_ray_vector) - 1
@@ -26,6 +26,6 @@ class Sphere
   end
 
   def normal_at(p)
-    (p - point(0, 0, 0)).normalize
+    (p - NULL_POINT).normalize
   end
 end

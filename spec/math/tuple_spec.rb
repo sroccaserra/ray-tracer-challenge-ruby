@@ -90,10 +90,9 @@ describe 'Tuple' do
     end
 
     it 'should substract from the zero vector' do
-      zero = vector(0, 0, 0)
       v = vector(1, -2, 3)
 
-      expect(zero - v).to eq vector(-1, 2, -3)
+      expect(NULL_VECTOR - v).to eq vector(-1, 2, -3)
     end
   end
 
