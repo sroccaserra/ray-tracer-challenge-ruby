@@ -1,3 +1,4 @@
+require 'math/rotation'
 require 'math/scaling'
 require 'math/translation'
 require 'math/tuple'
@@ -72,42 +73,62 @@ describe 'Sphere' do
   end
 
   describe 'normals' do
-    before(:each) do
-      @sphere = Sphere.new()
+    describe 'on untransformed spheres' do
+      before(:each) do
+        @sphere = Sphere.new()
+      end
+
+      it 'computes at a given point on the x axis' do
+        p = point(1, 0, 0)
+
+        expect(@sphere.normal_at(p)).to eq vector(1, 0, 0)
+      end
+
+      it 'computes at a given point on the y axis' do
+        p = point(0, 1, 0)
+
+        expect(@sphere.normal_at(p)).to eq vector(0, 1, 0)
+      end
+
+      it 'computes at a given point on the z axis' do
+        p = point(0, 0, 1)
+
+        expect(@sphere.normal_at(p)).to eq vector(0, 0, 1)
+      end
+
+      it 'computes at a non axial point' do
+        u = Math.sqrt(3)/3
+        p = point(u, u, u)
+
+        expect(@sphere.normal_at(p)).to eq vector(u, u, u)
+      end
+
+      it 'returns a normalized vector' do
+        u = Math.sqrt(3)/3
+        p = point(u, u, u)
+
+        n = @sphere.normal_at(p)
+
+        expect(n.normalize).to eq n
+      end
     end
 
-    it 'computes at a given point on the x axis' do
-      p = point(1, 0, 0)
+    describe 'on transformed spheres' do
+      it 'computes on a translated sphere' do
+        sphere = Sphere.new(translation(0, 1, 0))
 
-      expect(@sphere.normal_at(p)).to eq vector(1, 0, 0)
-    end
+        n = sphere.normal_at(point(0, 1.70711, -0.70711))
 
-    it 'computes at a given point on the y axis' do
-      p = point(0, 1, 0)
+        expect(n).to eq_epsilon vector(0, 0.70711, -0.70711)
+      end
 
-      expect(@sphere.normal_at(p)).to eq vector(0, 1, 0)
-    end
+      it 'computes on a scaled and rotated sphere' do
+        sphere = Sphere.new(scaling(1, 0.5, 1)*rotation_z(Math::PI/5))
 
-    it 'computes at a given point on the z axis' do
-      p = point(0, 0, 1)
+        n = sphere.normal_at(point(0, Math.sqrt(2)/2, -Math.sqrt(2)/2))
 
-      expect(@sphere.normal_at(p)).to eq vector(0, 0, 1)
-    end
-
-    it 'computes at a non axial point' do
-      u = Math.sqrt(3)/3
-      p = point(u, u, u)
-
-      expect(@sphere.normal_at(p)).to eq vector(u, u, u)
-    end
-
-    it 'returns a normalized vector' do
-      u = Math.sqrt(3)/3
-      p = point(u, u, u)
-
-      n = @sphere.normal_at(p)
-
-      expect(n.normalize).to eq n
+        expect(n).to eq_epsilon vector(0, 0.97014, -0.24254)
+      end
     end
   end
 end
