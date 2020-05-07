@@ -178,4 +178,20 @@ describe 'Vector' do
       expect(p).to eq point(5.463482975759611, 10.834269356367301, 0)
     end
   end
+
+  describe 'Reflecting a vector' do
+    it 'reflects a vector approaching at 45°' do
+      v = vector(1, -1, 0)
+      n = vector(0, 1, 0)
+
+      expect(v.reflect_on(n)).to eq vector(1, 1, 0)
+    end
+
+    it 'reflects a vector off a slanted surface' do
+      v = vector(0, -1, 0)
+      n = vector(Math.sqrt(2)/2, Math.sqrt(2)/2, 0)
+
+      expect(v.reflect_on(n)).to eq_epsilon vector(1, 0, 0)
+    end
+  end
 end

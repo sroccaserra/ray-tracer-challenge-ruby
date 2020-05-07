@@ -77,6 +77,10 @@ Tuple = Struct.new(:vector) do
       0
     ])
   end
+
+  def reflect_on(normal)
+    return self - normal*2*self.dot(normal)
+  end
 end
 
 NULL_POINT = point(0, 0, 0).freeze
