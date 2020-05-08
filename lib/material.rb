@@ -16,4 +16,28 @@ class Material
     @specular = specular
     @shininess = shininess
   end
+
+  def lighting(light, point, eye_vector, normal_vector)
+    effective_color = @color.mul(light.intensity)
+    ambient_color = effective_color * @ambient
+
+    light_vector = (light.position - point).normalize
+    light_dot_normal = light_vector.dot(normal_vector)
+    if light_dot_normal < 0
+      diffuse_color = BLACK
+      specular_color = BLACK
+    else
+      diffuse_color = effective_color * (@diffuse * light_dot_normal)
+      reflect_vector = -light_vector.reflect_on(normal_vector)
+      reflect_dot_eye = reflect_vector.dot(eye_vector)
+      if reflect_dot_eye <= 0
+        specular_color = BLACK
+      else
+        factor = reflect_dot_eye**@shininess
+        specular_color = light.intensity*(@specular*factor)
+      end
+    end
+
+    ambient_color + diffuse_color + specular_color
+  end
 end

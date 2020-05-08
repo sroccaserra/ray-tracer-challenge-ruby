@@ -37,4 +37,5 @@ Color = Struct.new(:v) do
   end
 end
 
+BLACK = color(0, 0, 0)
 WHITE = color(1, 1, 1)
