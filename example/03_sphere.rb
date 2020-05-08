@@ -34,7 +34,7 @@ def main
       xs = sphere.intersect(ray)
 
       if !xs.empty?
-        depth_ratio = 4.9-hit(xs).t
+        depth_ratio = 4.9-hit_from_intersections(xs).t
         gradiant_g = (screen_x.to_f)*(h-screen_y)/(w*h)
         gradiant_b = screen_x.to_f*screen_y/(w*h)
         pen_color = color(depth_ratio, gradiant_g, gradiant_b)
