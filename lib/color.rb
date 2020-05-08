@@ -36,3 +36,5 @@ Color = Struct.new(:v) do
     Color.new(Vector[red, green, blue])
   end
 end
+
+WHITE = color(1, 1, 1)
