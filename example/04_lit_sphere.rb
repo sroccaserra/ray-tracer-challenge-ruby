@@ -23,6 +23,8 @@ def main
   light_2 = PointLight.new(point(10, -10, 10),
                            color(0.3, 0.3, 0.3))
 
+  bg_color = color(0.5, 0.2, 0.1)
+
   wall_z = 10
   wall_size = 7.0
   half_size = wall_size/2
@@ -50,6 +52,8 @@ def main
         color_2 = hit.object.lighting(light_2, p, -ray.direction)
 
         canvas.write_pixel(screen_x, screen_y, color_1 + color_2)
+      else
+        canvas.write_pixel(screen_x, screen_y, bg_color*((h-screen_y.to_f)/h))
       end
     end
   end
