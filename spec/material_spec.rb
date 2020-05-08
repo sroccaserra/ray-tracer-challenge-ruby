@@ -65,7 +65,7 @@ describe 'Material' do
 
       result = @m.lighting(light, NULL_POINT, eye_vector, @normal_vector)
 
-      expect(result).to eq_epsilon color(0.1, 0.1, 0.1)
+      expect(result).to eq color(0.1, 0.1, 0.1)
     end
   end
 end

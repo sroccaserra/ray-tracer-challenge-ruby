@@ -5,4 +5,8 @@ class PointLight
     @position = position
     @intensity = intensity
   end
+
+  def direction_to(p)
+    (@position - p).normalize
+  end
 end

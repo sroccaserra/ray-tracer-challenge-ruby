@@ -19,9 +19,8 @@ class Material
 
   def lighting(light, point, eye_vector, normal_vector)
     effective_color = @color.mul(light.intensity)
-    ambient_color = effective_color * @ambient
 
-    light_vector = (light.position - point).normalize
+    light_vector = light.direction_to(point)
     light_dot_normal = light_vector.dot(normal_vector)
     if light_dot_normal < 0
       diffuse_color = BLACK
@@ -38,6 +37,7 @@ class Material
       end
     end
 
+    ambient_color = effective_color * @ambient
     ambient_color + diffuse_color + specular_color
   end
 end
