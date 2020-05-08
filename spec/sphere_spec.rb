@@ -1,3 +1,4 @@
+require 'light'
 require 'math/rotation'
 require 'math/scaling'
 require 'math/translation'
@@ -129,6 +130,17 @@ describe 'Sphere' do
 
         expect(n).to eq_epsilon vector(0, 0.97014, -0.24254)
       end
+    end
+  end
+
+  describe 'lighting' do
+    it 'computes lighting' do
+      sphere = Sphere.new
+      eye_vector = vector(0, 0, 1)
+      light = PointLight.new(point(0, 0, -5), WHITE)
+      p = point(0, 0, -1)
+
+      expect(sphere.lighting(light, p, eye_vector)).to eq WHITE
     end
   end
 end

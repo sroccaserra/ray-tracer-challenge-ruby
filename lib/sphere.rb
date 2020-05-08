@@ -1,10 +1,12 @@
 require_relative './math/matrix'
 require_relative './math/tuple'
 require_relative './intersection'
+require_relative './material'
 
 class Sphere
-  def initialize(transformation = identity_matrix)
+  def initialize(transformation = identity_matrix, material = Material.new)
     @transformation = transformation
+    @material = material
   end
 
   def intersect(ray)
@@ -30,5 +32,10 @@ class Sphere
     object_n = (object_p - NULL_POINT)
     world_n = @transformation.inverse.transpose*object_n
     vector(world_n.x, world_n.y, world_n.z).normalize
+  end
+
+  def lighting(light, point, eye_vector)
+    normal = normal_at(point)
+    @material.lighting(light, point, eye_vector, normal)
   end
 end
