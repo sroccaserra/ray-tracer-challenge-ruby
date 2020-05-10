@@ -15,8 +15,8 @@ def main
   canvas = Canvas.new(w, h)
 
   ray_origin = point(0, 0, -5)
-  purple_material = Material.new(color: color(0.7, 0.2, 0.8))
-  sphere = Sphere.new(identity_matrix, purple_material)
+  sphere_material = Material.new(color: color(0.7, 0.2, 0.8), ambient: 0.05)
+  sphere = Sphere.new(identity_matrix, sphere_material)
 
   light_1 = PointLight.new(point(-10, 10, -10),
                            WHITE)
